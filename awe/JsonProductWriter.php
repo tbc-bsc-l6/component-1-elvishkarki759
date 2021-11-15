@@ -35,6 +35,11 @@ class JsonProductWriter extends ShopProductWriter
             $json_product['type'] = "cd";
         }
 
+        if($product instanceof GameProduct) {
+            $json_product['gamepegi'] = $product->getGamePegi();
+            $json_product['type'] = "game";
+        }
+
         return json_encode($json_product);
     }
 }
